@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fandom ZIM archives for KOReader</title>
+<meta name="description" content="Prebuilt offline Fandom wiki archives (ZIM) for KOReader and LocalWiki. Harry Potter, LOTR, Dune, Discworld and more.">
+<style>
+  :root {
+    --bg: #14161a; --panel: #1c1f26; --line: #2a2f3a;
+    --fg: #e8eaed; --dim: #9aa3b2; --accent: #7aa2f7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px 80px; }
+  h1 { font-size: 30px; line-height: 1.25; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .lede { color: var(--dim); font-size: 17px; margin: 0 0 32px; max-width: 62ch; }
+  .lede a { color: var(--accent); text-decoration: none; }
+  .lede a:hover { text-decoration: underline; }
+  .note {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; margin: 0 0 32px; font-size: 14.5px; color: var(--dim);
+  }
+  .note b { color: var(--fg); font-weight: 600; }
+  .note code {
+    background: #0f1115; padding: 1px 6px; border-radius: 4px;
+    font-size: 13px; color: #c8d3f5;
+  }
+  .search {
+    width: 100%; padding: 12px 16px; margin: 0 0 20px;
+    background: var(--panel); color: var(--fg);
+    border: 1px solid var(--line); border-radius: 10px;
+    font: inherit; font-size: 15px; outline: none;
+  }
+  .search:focus { border-color: var(--accent); }
+  .search::placeholder { color: var(--dim); }
+  .count { color: var(--dim); font-size: 13.5px; margin: 0 0 12px; }
+  .grid { display: grid; gap: 10px; }
+  .card {
+    display: grid; grid-template-columns: 1fr auto; gap: 2px 16px;
+    align-items: baseline; padding: 14px 18px; text-decoration: none;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    color: var(--fg); transition: border-color .15s, background .15s;
+  }
+  .card:hover { border-color: var(--accent); background: #21252e; }
+  .name { font-weight: 600; font-size: 15.5px; }
+  .sizes { grid-column: 1; color: var(--dim); font-size: 13.5px; }
+  .sizes b { color: var(--fg); font-weight: 600; }
+  .go { grid-column: 2; grid-row: 1 / span 2; color: var(--accent); font-size: 13.5px; white-space: nowrap; }
+  footer { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--dim); font-size: 13.5px; }
+  footer a { color: var(--accent); text-decoration: none; }
+  @media (max-width: 520px) {
+    .card { grid-template-columns: 1fr; }
+    .go { grid-column: 1; grid-row: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Fandom wikis, offline</h1>
+  <p class="lede">
+    Prebuilt <b>ZIM</b> archives of Fandom wikis for
+    <a href="https://github.com/nar-io/localwiki.koplugin">LocalWiki</a>, the offline ZIM reader
+    for <a href="https://koreader.rocks/">KOReader</a>. Drop one on your e-reader and read it with
+    Wi-Fi off.
+  </p>
+
+  <div class="note">
+    <b>How to use:</b> open a wiki below, download the <code>_full.zim</code> (with pictures) or
+    <code>_no_image.zim</code> (text only), copy it into your ZIM folder — the default is
+    <code>/mnt/us/wikipedia</code> — and restart KOReader. Each archive is a single file unless it
+    is over 4&nbsp;GB, in which case it ships split into <code>.zimaa</code>, <code>.zimab</code>…
+    parts that must all be copied.
+    <br><br>
+    <b>These are prebuilt archives, not a service.</b> No warranty — back up your KOReader
+    settings folder before you start.
+  </div>
+
+  <input id="q" class="search" type="search" placeholder="Filter by name — Harry, Dune, Discworld…" autocomplete="off" spellcheck="false">
+  <p class="count" id="count"></p>
+
+  <div class="grid" id="grid">
+      <a class="card" data-slug="harrypotter" href="https://drive.google.com/drive/folders/1a-3mrNG26d9f0iJ1SoUz1hV3-2Q37dn9" target="_blank" rel="noopener">
+        <span class="name">Harry Potter</span>
+        <span class="sizes"><b>592 MB</b> with images · 48 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="lovecraft" href="https://drive.google.com/drive/folders/13NGMpBI3iZlluNCYtMjZPtYharHq80Bc" target="_blank" rel="noopener">
+        <span class="name">H.P. Lovecraft</span>
+        <span class="sizes"><b>161 MB</b> with images · 11 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="lotr" href="https://drive.google.com/drive/folders/1ZL-8MveKHs8Wf8pezQQoGvN0psNg_gHK" target="_blank" rel="noopener">
+        <span class="name">The Lord of the Rings</span>
+        <span class="sizes"><b>95 MB</b> with images · 14 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="gameofthrones" href="https://drive.google.com/drive/folders/1as7m1Y3QGucIjOCbad36XXNOivXSAxef" target="_blank" rel="noopener">
+        <span class="name">A Song of Ice and Fire / Game of Thrones</span>
+        <span class="sizes"><b>89 MB</b> with images · 18 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="riordan" href="https://drive.google.com/drive/folders/1KfTX0RAxw6kNeA7szLIugtFB00gxIyaS" target="_blank" rel="noopener">
+        <span class="name">Percy Jackson (Riordan)</span>
+        <span class="sizes"><b>70 MB</b> with images · 11 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="redwall" href="https://drive.google.com/drive/folders/18eXS1raK-yhQ3U9x7BkYWaVKgicu-uqZ" target="_blank" rel="noopener">
+        <span class="name">Redwall</span>
+        <span class="sizes"><b>49 MB</b> with images · 3 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="agathachristie" href="https://drive.google.com/drive/folders/1S4oqUZZsIFEb3oWY5_GPqBkeM4cet67n" target="_blank" rel="noopener">
+        <span class="name">Agatha Christie</span>
+        <span class="sizes"><b>44 MB</b> with images · 10 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="dune" href="https://drive.google.com/drive/folders/1pzSjdYYt3jcAufX02c7DG4z-b6Tdd86W" target="_blank" rel="noopener">
+        <span class="name">Dune</span>
+        <span class="sizes"><b>43 MB</b> with images · 6 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="stephenking" href="https://drive.google.com/drive/folders/1UxuhkNAsO6R9_SKrEiTYQxxFODKxAiqQ" target="_blank" rel="noopener">
+        <span class="name">Stephen King</span>
+        <span class="sizes"><b>33 MB</b> with images · 5 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="wot" href="https://drive.google.com/drive/folders/14RtcsZ9Cn_UBmyLlVme7zV_m5JhpNW0j" target="_blank" rel="noopener">
+        <span class="name">The Wheel of Time</span>
+        <span class="sizes"><b>29 MB</b> with images · 9 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="anneofgreengables" href="https://drive.google.com/drive/folders/1gK_c-bFfTCoKD4Ab33EbQ9ZZ-oaDNV9d" target="_blank" rel="noopener">
+        <span class="name">Anne of Green Gables</span>
+        <span class="sizes"><b>28 MB</b> with images · 4 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="malazan" href="https://drive.google.com/drive/folders/16J7AzxRUDPbk6_sQxHHy8X56fM6sC8jf" target="_blank" rel="noopener">
+        <span class="name">Malazan Book of the Fallen</span>
+        <span class="sizes"><b>26 MB</b> with images · 9 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="wings-of-fire" href="https://drive.google.com/drive/folders/1Omz0u_SuMTD3dwEHaqrKBWBETeRkzbXW" target="_blank" rel="noopener">
+        <span class="name">Wings of Fire</span>
+        <span class="sizes"><b>20 MB</b> with images · 3 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="hungergames" href="https://drive.google.com/drive/folders/1i8KgtR6Q7mYg-lxlkBqrWI-QIXAqpMaa" target="_blank" rel="noopener">
+        <span class="name">The Hunger Games</span>
+        <span class="sizes"><b>19 MB</b> with images · 3 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="shadowhunters" href="https://drive.google.com/drive/folders/1r4-SIdnKgai9_2JgArPwZwFP96-nY-5V" target="_blank" rel="noopener">
+        <span class="name">Shadowhunters</span>
+        <span class="sizes"><b>17 MB</b> with images · 3 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="iceandfire" href="https://drive.google.com/drive/folders/19K_PV3pd-4p_wDaWu2yRQF-IjK7Zg67J" target="_blank" rel="noopener">
+        <span class="name">A Song of Ice and Fire</span>
+        <span class="sizes"><b>17 MB</b> with images · 3 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="stormlightarchive" href="https://drive.google.com/drive/folders/1_F7rbx6wlmKFaO9TYEw7KB71EwvduDDw" target="_blank" rel="noopener">
+        <span class="name">The Stormlight Archive</span>
+        <span class="sizes"><b>17 MB</b> with images · 3 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="animorphs" href="https://drive.google.com/drive/folders/1JJfQchMyV_hSNN8g4I1ekqdamQeaqASr" target="_blank" rel="noopener">
+        <span class="name">Animorphs</span>
+        <span class="sizes"><b>16 MB</b> with images · 3 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="twilight" href="https://drive.google.com/drive/folders/1HETS-SHIu2lK8EyiFxXX-GzRpvOSnQPf" target="_blank" rel="noopener">
+        <span class="name">Twilight</span>
+        <span class="sizes"><b>14 MB</b> with images · 2 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="asimov" href="https://drive.google.com/drive/folders/1ztOe1ZL-p6tpbxJipeMgzNfGW9YjcZaU" target="_blank" rel="noopener">
+        <span class="name">Isaac Asimov / Foundation</span>
+        <span class="sizes"><b>14 MB</b> with images · 1 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="narnia" href="https://drive.google.com/drive/folders/1j25urCCaFf5xLz9SrAWyuHJL-scHAbgJ" target="_blank" rel="noopener">
+        <span class="name">The Chronicles of Narnia</span>
+        <span class="sizes"><b>12 MB</b> with images · 1 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="darktower" href="https://drive.google.com/drive/folders/1X7dcJdMESYTWMHq1oxsdhOj0BB_dqyS3" target="_blank" rel="noopener">
+        <span class="name">The Dark Tower</span>
+        <span class="sizes"><b>10 MB</b> with images · 817 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="hisdarkmaterials" href="https://drive.google.com/drive/folders/1BSINKMGtHvJlHxfGC5avZcsQSzvDw5Rb" target="_blank" rel="noopener">
+        <span class="name">His Dark Materials</span>
+        <span class="sizes"><b>9 MB</b> with images · 2 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="outlander" href="https://drive.google.com/drive/folders/1qlLurY4D5VlZ6-GqO7a_KoqqhTSYbx8l" target="_blank" rel="noopener">
+        <span class="name">Outlander</span>
+        <span class="sizes"><b>9 MB</b> with images · 2 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="eragon" href="https://drive.google.com/drive/folders/1H45Rlk35GCiJ8-QoGv9Kc3ErJP-KHobw" target="_blank" rel="noopener">
+        <span class="name">Inheritance Cycle (Eragon)</span>
+        <span class="sizes"><b>9 MB</b> with images · 2 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="discworld" href="https://drive.google.com/drive/folders/1kcoHyHkoMdpwzAGXtJ55vnDq__6quRZQ" target="_blank" rel="noopener">
+        <span class="name">Discworld</span>
+        <span class="sizes"><b>8 MB</b> with images · 2 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="dresdenfiles" href="https://drive.google.com/drive/folders/1tOs3rXR20d4HmggSk-6uAORnUDwC_6OU" target="_blank" rel="noopener">
+        <span class="name">The Dresden Files</span>
+        <span class="sizes"><b>7 MB</b> with images · 2 MB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="artemis-fowl" href="https://drive.google.com/drive/folders/1M4KId2hAKqmvqg5JFh3eZsa1lHlKDYJ0" target="_blank" rel="noopener">
+        <span class="name">Artemis Fowl</span>
+        <span class="sizes"><b>7 MB</b> with images · 684 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="divergent" href="https://drive.google.com/drive/folders/1pkQzNNWEVIiY6pPvPr0QrkRyI6BZM819" target="_blank" rel="noopener">
+        <span class="name">Divergent</span>
+        <span class="sizes"><b>6 MB</b> with images · 423 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="three-body-problem" href="https://drive.google.com/drive/folders/1VHMkSVq42hzgEQyyEoFctYDwPM_SgYJ6" target="_blank" rel="noopener">
+        <span class="name">The Three-Body Problem</span>
+        <span class="sizes"><b>5 MB</b> with images · 709 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="kingkiller" href="https://drive.google.com/drive/folders/1M1jmdunIG-xnXArOQDyyWbrcNLycZHuz" target="_blank" rel="noopener">
+        <span class="name">The Kingkiller Chronicle</span>
+        <span class="sizes"><b>3 MB</b> with images · 648 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="janeausten" href="https://drive.google.com/drive/folders/1qiSMUwthBG4Qje8vRzq30LSz5uBwIl7k" target="_blank" rel="noopener">
+        <span class="name">Jane Austen</span>
+        <span class="sizes"><b>3 MB</b> with images · 574 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="mistborn" href="https://drive.google.com/drive/folders/10Ch4kDL2209Bw_FkS3kfHYhdepDrP2ze" target="_blank" rel="noopener">
+        <span class="name">Mistborn</span>
+        <span class="sizes"><b>1 MB</b> with images · 258 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+      <a class="card" data-slug="earthsea" href="https://drive.google.com/drive/folders/1H1LwZGz-9S-zUbL_M-c4rq-aX_rsXmVp" target="_blank" rel="noopener">
+        <span class="name">Earthsea</span>
+        <span class="sizes"><b>935 KB</b> with images · 222 KB text-only</span>
+        <span class="go">Open in Drive →</span>
+      </a>
+  </div>
+
+  <script>
+  (function () {
+    var q = document.getElementById('q');
+    var grid = document.getElementById('grid');
+    var count = document.getElementById('count');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+    var total = cards.length;
+
+    cards.forEach(function (c) {
+      c.dataset.search = (c.querySelector('.name').textContent + ' ' + c.dataset.slug).toLowerCase();
+    });
+
+    function update() {
+      var term = q.value.trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function (c) {
+        var hit = term === '' || c.dataset.search.indexOf(term) !== -1;
+        c.style.display = hit ? '' : 'none';
+        if (hit) shown++;
+      });
+      count.textContent = term === ''
+        ? total + ' wikis'
+        : shown + ' of ' + total + ' wikis match “' + q.value.trim() + '”';
+    }
+
+    q.addEventListener('input', update);
+    update();
+  })();
+
+  </script>
+
+
+  <footer>
+    34 wikis · 1.5 GB with images · 184 MB text-only ·
+    hosted on Google Drive.<br>
+    Reader plugin: <a href="https://github.com/nar-io/localwiki.koplugin">github.com/nar-io/localwiki.koplugin</a>
+  </footer>
+
+</div>
+</body>
+</html>
